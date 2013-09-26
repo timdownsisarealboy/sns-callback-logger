@@ -6,9 +6,8 @@ import json
 def home():
     resp = {}
     if request.method == 'POST':
-        json_resp = json.dumps(request.form)
         with open("sns-messages.log", "a") as myfile:
-            myfile.write(json_resp)
+            myfile.write(request.data)
             myfile.write("\n")
         resp['success'] = True
     else:
